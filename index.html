@@ -16,11 +16,32 @@
       crossorigin
       src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
     ></script>
+    <script src="https://unpkg.com/@babel/standalone@7.9.3/babel.js"></script>
 
-    <script type="module">
+    <script type="text/babel">
+      function Message(props) {
+        return React.createElement(
+          'p',
+          null,
+          React.createElement('span', null, props.greeting),
+          React.createElement('span', null, props.subject)
+        );
+      }
+
+      const elements = (
+        <div>
+          <Message greeting='hello ' subject='Joary' />
+        </div>
+      );
+      // const paragraph = React.createElement(
+      //   'p',
+      //   { style: { background: 'red' }, id: '2' },
+      //   'hello world'
+      // );
+      // const elements = React.createElement('div', null, paragraph);
       const rootElement = document.getElementById('root');
       const root = ReactDOM.createRoot(rootElement);
-      root.render(React.createElement('div', null, 'hello word'));
+      root.render(elements);
     </script>
   </body>
 </html>
